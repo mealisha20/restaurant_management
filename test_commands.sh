@@ -16,7 +16,7 @@ curl -X POST "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.
   -H "Content-Type: application/json" \
   -d '{
     "order_by": "aki",
-    "total items": "8",
+    "total_items": "8",
     "amount": "657"
   }'
 
@@ -30,7 +30,7 @@ curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.d
   }'
 
 # E. Delete billing
-curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/1"
+curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/2"
 
 
 # ==================================================
@@ -42,26 +42,28 @@ curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.d
 
 
 # B. Get One menu
-curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/dalama"
+curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/1"
 
 # C. Create menu
 curl -X POST "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus" \
   -H "Content-Type: application/json" \
   -d '{ 
+    "name": "dalama",
     "price": "65",
-    "rating": "4",
+    "rating": "4"
     }'
 
 # D. Update menu
-curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/dalama" \
+curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/1" \
   -H "Content-Type: application/json" \
   -d '{
-    "price"= "60",
+    "name": "dalama",
+    "price": "60",
     "rating": "4"
   }'
 
 # E. Delete menu
-curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/dalama"
+curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/2"
 
 
 # ==================================================
@@ -93,7 +95,7 @@ curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.d
   }'
 
 # E. Delete staff
-curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/staffs/1"
+curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/staffs/2"
 
 ##################### DB Observation Via SQLite Web
 - install https://github.com/coleifer/sqlite-web

@@ -1,4 +1,4 @@
-from database.queries import (
+from database.staff_queries import (
     db_get_all
     , db_get_one
     , db_create

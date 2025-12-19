@@ -16,17 +16,22 @@ def init_database():
         CREATE TABLE IF NOT EXISTS billings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             order_by TEXT,
-            total items INTEGER,
-            amount INTEGER
+            total_items INTEGER,
+            amount INTEGER,
+            created_at TEXT,
+            updated_at TEXT
             
         ) 
     """)
 
     conn.execute(""" 
         CREATE TABLE IF NOT EXISTS menus (
+            no INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
             price INTEGER,
-            rating INTEGER
+            rating INTEGER,
+            created_at TEXT,
+            updated_at TEXT
             
         ) 
     """)
@@ -36,7 +41,9 @@ def init_database():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
             age INTEGER,     
-            email TEXT
+            email TEXT,
+            created_at TEXT,
+            updated_at TEXT
             
         ) 
     """)

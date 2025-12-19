@@ -1,4 +1,4 @@
-from database.queries import (
+from database.billing_queries import (
      db_get_all
     , db_get_one
     , db_create
