@@ -1,5 +1,5 @@
-import { initBillingController } from "../controllers/billingController.js";
 import { initMenuController } from "../controllers/menuController.js";
+import { initBillingController } from "../controllers/billingController.js";
 import { initStaffController } from "../controllers/staffController.js";
 // Load a view into #app container
 async function loadView(path) {
@@ -14,15 +14,15 @@ export async function router() {
   if (path === "/" || path === "/home") {
     await loadView("/frontend/pages/home.html");
   }
-else if (path === "/billing") {
-    await loadView("/frontend/pages/restaurant.html");
-    initBillingController();
-  }
-  else if (path === "/menu") {
+  else if (path === "/menus") {
     await loadView("/frontend/pages/restaurant.html");
     initMenuController();
   }
-  else if (path === "/staff") {
+  else if (path === "/billings") {
+    await loadView("/frontend/pages/restaurant.html");
+    initBillingController();
+  }
+  else if (path === "/staffs") {
     await loadView("/frontend/pages/restaurant.html");
     initStaffController();
   }

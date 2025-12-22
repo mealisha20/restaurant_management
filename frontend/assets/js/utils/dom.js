@@ -1,4 +1,4 @@
-// Shortcut for selecting elements by ID
+//  Shortcut for selecting elements by ID
 export const $ = (id) => document.getElementById(id);
 
 // Converts an HTML string into a real DOM element

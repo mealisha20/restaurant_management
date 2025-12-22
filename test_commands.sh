@@ -2,38 +2,6 @@
 ##################### API Observation Via Hopscotch
 ##################### API Observation Via CURL
 # ==================================================
-# BILLING 
-# ==================================================
-
-# A. Get All billings
-curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings"
-
-# B. Get One billing
-curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/1"
-
-# C. Create billing
-curl -X POST "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "order_by": "aki",
-    "total_items": "8",
-    "amount": "657"
-  }'
-
-# D. Update billing
-curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/1" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "order_by": "aki",
-    "total items": "30",
-    "amount": "4577"
-  }'
-
-# E. Delete billing
-curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/2"
-
-
-# ==================================================
 # MENU 
 # ==================================================
 
@@ -67,6 +35,36 @@ curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.d
 # E. Delete menu
 curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/menus/2"
 
+# ==================================================
+# BILLING 
+# ==================================================
+
+# A. Get All billings
+curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings"
+
+# B. Get One billing
+curl -X GET "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/1"
+
+# C. Create billing
+curl -X POST "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_by": "aki",
+    "total_items": "8",
+    "amount": "657"
+  }'
+
+# D. Update billing
+curl -X PUT "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_by": "aki",
+    "total_items": "30",
+    "amount": "4577"
+  }'
+
+# E. Delete billing
+curl -X DELETE "https://symmetrical-space-trout-jjvrjvxw7xvr35qr5-8000.app.github.dev/api/billings/2"
 
 # ==================================================
 # STAFF 
