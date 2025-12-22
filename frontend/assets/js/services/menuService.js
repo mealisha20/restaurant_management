@@ -1,5 +1,5 @@
 // Base API URL from env.js
-const API_URL = window.ENV.API_BASE_URL;
+const API_MENUS_URL = window.ENV.API_MENUS_URL;
 
 // Helper: safely parse JSON or return null
 async function safeJson(res) {
@@ -12,20 +12,20 @@ async function safeJson(res) {
 
 // Fetch all students
 export async function apiGetAll() {
-  const res = await fetch(API_URL);
+  const res = await fetch(API_MENUS_URL);
   if (!res.ok) return [];
   return safeJson(res);
 }
 // Fetch one student by ID
 export async function apiGetOne(id) {
-  const res = await fetch(`${API_URL}/${id}`);
+  const res = await fetch(`${API_MENUS_URL}/${id}`);
   if (!res.ok) return null;
   return safeJson(res);
 }
 
 // Create a new student
 export function apiCreate(data) {
-  return fetch(API_URL, {
+  return fetch(API_MENUS_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
@@ -34,7 +34,7 @@ export function apiCreate(data) {
 
 // Update a student
 export function apiUpdate(id, data) {
-  return fetch(`${API_URL}/${id}`, {
+  return fetch(`${API_MENUS_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
@@ -43,5 +43,5 @@ export function apiUpdate(id, data) {
 
 // Delete a student
 export function apiDelete(id) {
-  return fetch(`${API_URL}/${id}`, { method: "DELETE" });
+  return fetch(`${API_MENUS_URL}/${id}`, { method: "DELETE" });
 }
