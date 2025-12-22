@@ -28,9 +28,9 @@ export function initMenuController() {
 
     // Collect data from the input fields using the custom '$' selector
     const data = {
-      Category: $("Category").value.trim(),   // Get name value, remove whitespace
-      email: $("Name").value.trim(), // Get email value
-      price: $("Price").value.trim(), // Get course value
+      category: $("category").value.trim(),   // Get name value, remove whitespace
+      email: $("name").value.trim(), // Get email value
+      price: $("price").value.trim(), // Get course value
       rating: $("rating").value.trim()    // Get year value
     };
 

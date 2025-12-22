@@ -1,5 +1,3 @@
-import { loadMenus } from "../controllers/menuController";
-
 // Global app state
 let state = {
   editingId: null,   // which item is being edited         

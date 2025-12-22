@@ -31,7 +31,7 @@ export function renderStaffTable(staffs) {
       <td class="px-3 py-2">${staff.id}</td>
       <td class="px-3 py-2">${staff.name}</td>
       <td class="px-3 py-2">${staff.email}</td>
-      <td class="px-3 py-2">${staff.Age}</td>
+      <td class="px-3 py-2">${staff.age}</td>
       
       <td class="px-3 py-2 flex space-x-2">
         <!-- Buttons are created with data attributes holding the staff ID -->

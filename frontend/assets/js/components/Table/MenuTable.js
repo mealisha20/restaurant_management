@@ -29,9 +29,9 @@ export function renderMenuTable(menus) {
     // Populate the row with dynamic HTML content using a template literal
     row.innerHTML = `
       <td class="px-3 py-2">${menu.no}</td>
-      <td class="px-3 py-2">${menu.Category}</td>
-      <td class="px-3 py-2">${menu.Name}</td>
-      <td class="px-3 py-2">${menu.Price}</td>
+      <td class="px-3 py-2">${menu.category}</td>
+      <td class="px-3 py-2">${menu.name}</td>
+      <td class="px-3 py-2">${menu.price}</td>
       <td class="px-3 py-2">${menu.rating}</td>
       <td class="px-3 py-2 flex space-x-2">
         <!-- Buttons are created with data attributes holding the menu id -->
