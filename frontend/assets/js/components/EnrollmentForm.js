@@ -3,7 +3,7 @@ import { $ } from "../utils/dom.js";
 export function fillEnrollmentDropdowns(billings, menus) {
   const billingSel = $("billing_id");
   const menuSel = $("menu_id");
-
+ 
   billingSel.innerHTML = `<option value="">Select billing</option>`;
   menuSel.innerHTML = `<option value="">Select menu</option>`;
 
