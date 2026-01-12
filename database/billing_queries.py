@@ -6,19 +6,17 @@ def db_get_all():
     conn.close()
     return [dict(r) for r in rows]
 
-
 def db_get_one(billing_id):
     conn = get_connection()
     row = conn.execute("SELECT * FROM billings WHERE id = ?",(billing_id,)).fetchone()
     conn.close()
     return dict(row) if row else None
 
-
 def db_create(data):
     conn = get_connection()
     now = datetime.now().isoformat()
     cur = conn.execute(
-        "INSERT INTO billings ( order_by, total_items, amount, created_at) VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO billings (order_by, total_items, amount, created_at) VALUES (?, ?, ?, ?)",
         (data["order_by"], data["total_items"], data["amount"], now)
     )
     conn.commit()
@@ -31,7 +29,7 @@ def db_update(billing_id, data):
     conn = get_connection()
     now = datetime.now().isoformat()
     conn.execute(
-        "UPDATE billings SET order_by=?, order_by=?, total_items=?, amount=?, updated_at=? WHERE id=?",
+        "UPDATE billings SET order_by=?, total_items=?, amount=?, updated_at=? WHERE id=?",
         (data["order_by"], data["total_items"], data["amount"], now, billing_id)
     )
     conn.commit()

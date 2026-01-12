@@ -28,10 +28,10 @@ export function initMenuController() {
 
     // Collect data from the input fields using the custom '$' selector
     const data = {
-      Category: $("Category").value.trim(),   // Get name value, remove whitespace
-      name: $("name").value.trim(), // Get email value
-      price: $("price").value.trim(), // Get course value
-      rating: $("rating").value.trim()    // Get year value
+      Category: $("Category").value.trim(),   // Get Category value, remove whitespace
+      name: $("name").value.trim(), // Get name value
+      price: $("price").value.trim(), // Get price value
+      rating: $("rating").value.trim()    // Get rating value
     };
 
     // Check the application state to see if we are currently editing an existing record

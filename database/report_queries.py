@@ -1,4 +1,3 @@
-from datetime import datetime
 from .connection import get_connection
 
 def enrollment_report():
@@ -11,12 +10,12 @@ def enrollment_report():
             e.id AS enrollment_id,
             e.enrolled_on,
             b.id AS billing_id,
-            b.name AS billing_name,
+            b.order_by AS billing_order_by,
             m.id AS menu_id,
-            m.title AS menu_Category
+            m.name AS menu_name
         FROM enrollments e
-        JOIN billings s ON s.id = e.billing_id
-        JOIN menus c ON c.id = e.menu_id
+        JOIN billings b ON b.id = e.billing_id
+        JOIN menus m ON m.id = e.menu_id
         ORDER BY e.id DESC;
     """).fetchall()
     conn.close()

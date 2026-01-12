@@ -5,7 +5,7 @@ from database.enrollment_queries import (
     enrollments_get_all,
     enrollments_get_one,
     enrollments_create,
-    enrollments_delete,
+    enrollments_delete
 )
 
 def service_get_all():
