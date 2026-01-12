@@ -1,7 +1,7 @@
 import { $ } from "../utils/dom.js";
 import { editMenu, deleteMenuAction } from "../controllers/menuController.js";
 
-export function rendeMenuTable(menus) {
+export function renderMenuTable(menus) {
   const body = $("menusTableBody");
   const empty = $("noMenus");
 
