@@ -17,7 +17,7 @@ export function fillEnrollmentDropdowns(billings, menus) {
   (menus || []).forEach(m => {
     const opt = document.createElement("option");
     opt.value = m.id;
-    opt.textContent = `${m.Category} (ID: ${m.id})`;
+    opt.textContent = `${m.name} (ID: ${m.id})`;
     menuSel.appendChild(opt);
   });
 }
