@@ -1,19 +1,19 @@
 from .connection import get_connection
 
-def recipt_report():
+def receipt_report():
     """
-    Returns joined rows: recipt + billing id + menu id
+    Returns joined rows: receipt + billing id + menu id
     """
     conn = get_connection()
     rows = conn.execute("""
         SELECT
-            r.id AS recipt_id,
-            r.recipt_on,
+            r.id AS receipt_id,
+            r.receipt_on,
             b.id AS billing_id,
             b.order_by AS billing_order_by,
             m.id AS menu_id,
             m.name AS menu_name
-        FROM recipts r
+        FROM receipts r
         JOIN billings b ON b.id = r.billing_id
         JOIN menus m ON m.id = r.menu_id
         ORDER BY r.id DESC;

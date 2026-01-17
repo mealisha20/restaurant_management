@@ -1,6 +1,6 @@
 import { $ } from "../utils/dom.js";
 
-export function fillReciptDropdowns(billings, menus ,staffs) {
+export function fillReceiptDropdowns(billings, menus ,staffs) {
   const billingSel = $("billing_id");
   const menuSel = $("menu_id");
   const staffSel = $("staff_id");

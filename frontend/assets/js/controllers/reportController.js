@@ -1,8 +1,8 @@
-import { apiGetReciptReport } from "../services/reportService.js";
-import { renderReciptReportTable } from "../components/ReciptReportTable.js";
+import { apiGetReceiptReport } from "../services/reportService.js";
+import { renderReceiptReportTable } from "../components/ReceiptReportTable.js";
 import { $ } from "../utils/dom.js";
 
-export function initReciptReportController() {
+export function initReceiptReportController() {
   loadReport();
 }
 
@@ -12,8 +12,8 @@ async function loadReport() {
 
   spinner.style.display = "block";
   table.style.display = "none";
-  const rows = await apiGetReciptReport();
-  renderReciptReportTable(rows);
+  const rows = await apiGetReceiptReport();
+  renderReceiptReportTable(rows);
 
   spinner.style.display = "none";
   table.style.display = "block";

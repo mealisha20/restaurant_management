@@ -1,6 +1,6 @@
 import { $ } from "../utils/dom.js";
 
-export function renderReciptReportTable(rows) {
+export function renderReceiptReportTable(rows) {
   const body = $("reportTableBody");
   const empty = $("noRows");
 
@@ -15,7 +15,7 @@ export function renderReciptReportTable(rows) {
   rows.forEach(r => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td class="px-3 py-2 border">${r.recipt_id ?? ""}</td>
+      <td class="px-3 py-2 border">${r.receipt_id ?? ""}</td>
       <td class="px-3 py-2 border">
         ${r.billing_order_by ?? ""} <span class="text-xs text-gray-500">(ID: ${r.billing_id ?? ""})</span>
       </td>
@@ -23,7 +23,7 @@ export function renderReciptReportTable(rows) {
         ${r.menu_name ?? ""} <span class="text-xs text-gray-500">(ID: ${r.menu_id ?? ""})</span>
       </td>
       
-      <td class="px-3 py-2 border">${r.recipt_on ?? ""}</td>
+      <td class="px-3 py-2 border">${r.receipt_on ?? ""}</td>
     `;
     body.appendChild(tr);
   });

@@ -51,12 +51,12 @@ def init_database():
         ) 
     """)
     conn.execute("""
-        CREATE TABLE IF NOT EXISTS recipts (
+        CREATE TABLE IF NOT EXISTS receipts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             billing_id INTEGER NOT NULL,
             menu_id INTEGER NOT NULL,
             staff_id INTEGER NOT NULL,
-            recipt_on TEXT,
+            receipt_on TEXT,
             created_at TEXT,
             updated_at TEXT,
             FOREIGN KEY(billing_id) REFERENCES billings(id),

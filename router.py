@@ -1,7 +1,7 @@
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
-from controllers.reports import get_recipt_report
+from controllers.reports import get_receipt_report
 
 from controllers.menu import (
     get_all_menus
@@ -29,11 +29,11 @@ from controllers.staff import (
     , delete_staff
     
 )
-from controllers.recipts import (
-    get_all_recipts,
-    get_recipt,
-    create_recipt,
-    delete_recipt
+from controllers.receipts import (
+    get_all_receipts,
+    get_receipt,
+    create_receipt,
+    delete_receipt
 )
 
 
@@ -42,7 +42,7 @@ from core.responses import send_404
 from core.middleware import add_cors_headers
 
 
-FRONTEND_ROUTES = {"/", "/home", "/menus", "/billings", "/staffs", "/recipts", "/reports/recipts", "/docs"}
+FRONTEND_ROUTES = {"/", "/home", "/menus", "/billings", "/staffs", "/receipts", "/reports/receipts", "/docs"}
 
 def handle_ui_routes(handler, path):
     if path in FRONTEND_ROUTES:
@@ -114,19 +114,19 @@ class restaurantRouter(BaseHTTPRequestHandler):
             return get_staff(self, staff_id)
     
 # ---------------------------
-# reciptS
+# receiptS
 # ---------------------------
-        if path == "/api/recipts":
-            return get_all_recipts(self)
+        if path == "/api/receipts":
+            return get_all_receipts(self)
 
-        if path.startswith("/api/recipts/"):
-            recipt_id = int(path.split("/")[-1])
-            return get_recipt(self, recipt_id)
+        if path.startswith("/api/receipts/"):
+            receipt_id = int(path.split("/")[-1])
+            return get_receipt(self, receipt_id)
   # ---------------------------
   # REPORTS (JOIN)
   # ---------------------------
-        if path == "/api/reports/recipts":
-         return get_recipt_report(self)
+        if path == "/api/reports/receipts":
+         return get_receipt_report(self)
 
         return send_404(self)       
     
@@ -140,8 +140,8 @@ class restaurantRouter(BaseHTTPRequestHandler):
         
         if self.path == "/api/staffs":
             return create_staff(self)
-        if self.path == "/api/recipts":
-            return create_recipt(self)
+        if self.path == "/api/receipts":
+            return create_receipt(self)
         
         return send_404(self)
     
@@ -178,9 +178,9 @@ class restaurantRouter(BaseHTTPRequestHandler):
              staff_id = int(self.path.split("/")[-1])
              return delete_staff(self, staff_id)
         
-        if self.path.startswith("/api/recipts/"):
-            recipt_id = int(self.path.split("/")[-1])
-            return delete_recipt(self, recipt_id)
+        if self.path.startswith("/api/receipts/"):
+            receipt_id = int(self.path.split("/")[-1])
+            return delete_receipt(self, receipt_id)
 
         
         return send_404(self)

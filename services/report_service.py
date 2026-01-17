@@ -1,4 +1,4 @@
-from database.report_queries import recipt_report
+from database.report_queries import receipt_report
 
-def service_get_recipt_report():
-    return recipt_report()
+def service_get_receipt_report():
+    return receipt_report()
