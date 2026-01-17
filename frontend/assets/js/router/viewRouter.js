@@ -1,8 +1,8 @@
 import { initBillingController } from "../controllers/billingController.js";
 import { initMenuController } from "../controllers/menuController.js";
 import { initStaffController } from "../controllers/staffController.js";
-import { initEnrollmentController } from "../controllers/enrollmentController.js";
-import { initEnrollmentReportController } from "../controllers/reportController.js";
+import { initReciptController } from "../controllers/reciptController.js";
+import { initReciptReportController } from "../controllers/reportController.js";
 // Load a view into #app container
 async function loadView(path) {
 const res = await fetch(path);
@@ -37,14 +37,14 @@ else if (path === "/billings") {
     await loadView("/frontend/pages/staffs.html");
     initStaffController();
   }
-  else if (path === "/enrollments") {
-    await loadView("/frontend/pages/enrollments.html");
-    initEnrollmentController();
+  else if (path === "/recipts") {
+    await loadView("/frontend/pages/recipts.html");
+    initReciptController();
   }
 
-  else if (path === "/reports/enrollments") {
-    await loadView("/frontend/pages/report_enrollments.html");
-    initEnrollmentReportController();
+  else if (path === "/reports/recipts") {
+    await loadView("/frontend/pages/report_recipts.html");
+    initReciptReportController();
   }
   else {
     await loadView("/frontend/pages/404.html");
