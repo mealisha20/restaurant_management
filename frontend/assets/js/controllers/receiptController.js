@@ -1,6 +1,6 @@
 import { apiGetAll as apiGetAllReceipts, apiCreate, apiDelete } from "../services/receiptService.js";
 import { apiGetAll as apiGetAllbillings } from "../services/billingService.js";
-import { apiGetAll as apiGetAllmenus } from "../services/menuService.js";
+import { apiGetAllmenus } from "../services/menuService.js";
 import { apiGetAll as apiGetAllstaffs } from "../services/staffService.js";
 
 import { showAlert } from "../components/Alert.js";
@@ -25,6 +25,8 @@ export function initReceiptController() {
     if (res.ok) {
       showAlert("Receipt created!");
       await loadReceiptsOnly();
+    }else {
+      showAlert("Failed to create receipt", "error");
     }
   });
 }
@@ -58,5 +60,7 @@ export async function deleteReceiptAction(id) {
   if (res.ok) {
     showAlert("Receipt deleted!");
     await loadReceiptsOnly();
+  }else {
+    showAlert("Failed to delete receipt", "error");
   }
 }
