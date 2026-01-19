@@ -45,23 +45,36 @@ from core.middleware import add_cors_headers
 FRONTEND_ROUTES = {"/", "/home", "/menus", "/billings", "/staffs", "/receipts", "reports/receipts", "/docs" ,"/infos"}
 
 def handle_ui_routes(handler, path):
+     # Exact SPA routes
     if path in FRONTEND_ROUTES:
         serve_static(handler, "frontend/pages/index.html")
         return True
 
+    # Allow /something.html to map to SPA routes too
     if path.endswith(".html"):
         stripped = path.replace(".html", "")
         if stripped in FRONTEND_ROUTES:
             serve_static(handler, "frontend/pages/index.html")
             return True
+
+    # Serve assets at /assets/... -> frontend/assets/...
     if path.startswith("/assets/"):
         serve_static(handler, "frontend" + path)
         return True
+
+    # Serve anything under /frontend/ directly
     if path.startswith("/frontend/"):
         serve_static(handler, path.lstrip("/"))
         return True
+
     if path == "/openapi.yaml":
         serve_static(handler, "openapi.yaml")
+        return True
+
+    # Dynamic SPA routes (profiles pages)
+    # e.g. /profiles/1 should still load index.html and let the SPA router decide
+    if path.startswith("/profiles/"):
+        serve_static(handler, "frontend/pages/index.html")
         return True
 
     return False
@@ -173,6 +186,7 @@ class restaurantRouter(BaseHTTPRequestHandler):
     # ---------- put ----------
     def do_PUT(self):
         path = urlparse(self.path).path
+
         if path.startswith("/api/menus/"):
             menu_id = _last_path_id_or_404(self, path)
             if menu_id is None:
@@ -197,6 +211,7 @@ class restaurantRouter(BaseHTTPRequestHandler):
     # ---------- delete ----------
     def do_DELETE(self):
         path = urlparse(self.path).path
+        
         if path.startswith("/api/menus/"):
             menu_id = _last_path_id_or_404(self, path)
             if menu_id is None:
