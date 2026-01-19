@@ -48,7 +48,7 @@ export function initMenuController() {
   // Attach a listener to the 'click' event of the cancel button
   $("cancelBtn").addEventListener("click", () => {
     // Clear the editing state (set the ID to null)
-    setState({ editingmenuId: null });
+    setState({ editingMenuId: null });
     // Clear all input fields in the form
     resetMenuForm();
   });

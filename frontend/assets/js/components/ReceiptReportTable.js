@@ -12,20 +12,20 @@ export function renderReceiptReportTable(rows) {
   }
   empty.classList.add("hidden");
 
-  rows.forEach(i => {
+  rows.forEach(r => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td class="px-3 py-2 border">${i.receipt_id ?? ""}</td>
+      <td class="px-3 py-2 border">${r.receipt_id ?? ""}</td>
       <td class="px-3 py-2 border">
-        ${i.billing_order_by ?? ""} <span class="text-xs text-gray-500">(ID: ${i.billing_id ?? ""})</span>
+        ${r.billing_order_by ?? ""} <span class="text-xs text-gray-500">(ID: ${r.billing_id ?? ""})</span>
       </td>
       <td class="px-3 py-2 border">
-        ${i.menu_name ?? ""} <span class="text-xs text-gray-500">(ID: ${i.menu_id ?? ""})</span>
+        ${r.menu_name ?? ""} <span class="text-xs text-gray-500">(ID: ${r.menu_id ?? ""})</span>
       </td>
       <td class="px-3 py-2 border">
-        ${i.staff_name ?? ""} <span class="text-xs text-gray-500">(ID: ${i.staff_id ?? ""})</span>
+        ${r.staff_name ?? ""} <span class="text-xs text-gray-500">(ID: ${r.staff_id ?? ""})</span>
       </td>
-      <td class="px-3 py-2 border">${i.receipt_on ?? ""}</td>
+      <td class="px-3 py-2 border">${r.receipt_on ?? ""}</td>
     `;
     body.appendChild(tr);
   });

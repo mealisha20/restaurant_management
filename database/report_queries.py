@@ -21,10 +21,10 @@ def receipt_report():
             m.price AS menu_price,
             m.rating AS menu_rating,
                          
-            s.id AS AS staff_id,
+            s.id AS staff_id,
             s.name AS staff_name,
-            s.age AS staff_age,
-            s.email AS staff_email
+            s.email AS staff_email,
+            s.age AS staff_age
                                                           
         FROM receipts r
         JOIN billings b ON b.id = r.billing_id

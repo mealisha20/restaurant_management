@@ -43,8 +43,7 @@ async function loadINFOs() {
   if (spinner) spinner.style.display = "block";
   if (container) container.style.display = "none";
 
-  const res = await fetch(API_URL);
-  allBillings = res.ok ? await res.json() : [];
+  allBillings = await fetchAllINFOs();
 
   refresh();
 

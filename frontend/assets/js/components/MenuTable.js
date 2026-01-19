@@ -20,8 +20,8 @@ export function renderMenuTable(menus) {
     tr.className = "border-b";
     tr.innerHTML = `
       <td class="px-3 py-2 border">${m.id ?? "-"}</td>
-      <td class="px-3 py-2 border">${m.name ?? "-"}</td>
       <td class="px-3 py-2 border">${m.Category ?? "-"}</td>
+      <td class="px-3 py-2 border">${m.name ?? "-"}</td>
       <td class="px-3 py-2 border">${m.price ?? "-"}</td>
       <td class="px-3 py-2 border">${m.rating ?? "-"}</td>
       <td class="px-3 py-2">
@@ -42,7 +42,7 @@ export function renderMenuTable(menus) {
       </td>
     `;
 
-     tr.querySelector("[data-edit]").addEventListener("click", () => editMenu(m.id));
+    tr.querySelector("[data-edit]").addEventListener("click", () => editMenu(m.id));
     tr.querySelector("[data-delete]").addEventListener("click", () => deleteMenuAction(m.id));
 
   body.appendChild(tr);

@@ -71,9 +71,9 @@ def handle_ui_routes(handler, path):
         serve_static(handler, "openapi.yaml")
         return True
 
-    # Dynamic SPA routes (profiles pages)
-    # e.g. /profiles/1 should still load index.html and let the SPA router decide
-    if path.startswith("/profiles/"):
+    # Dynamic SPA routes (infos pages)
+    # e.g. /infos/1 should still load index.html and let the SPA router decide
+    if path.startswith("/infos/"):
         serve_static(handler, "frontend/pages/index.html")
         return True
 
@@ -232,7 +232,9 @@ class restaurantRouter(BaseHTTPRequestHandler):
              return delete_staff(self, staff_id)
         
         if path.startswith("/api/receipts/"):
-            receipt_id = int(self.path.split("/")[-1])
+            receipt_id = _last_path_id_or_404(self, path)
+            if receipt_id is None:
+                return
             return delete_receipt(self, receipt_id)
 
         

@@ -13,7 +13,7 @@ import {
 } from "../components/INFOView.js";
 
 import {
-  PROFILE_CSV_COLUMNS,
+  INFO_CSV_COLUMNS,
   normalizeINFORows,
   buildINFOPDFHtml,
 } from "../utils/infoExport.js";
@@ -39,19 +39,19 @@ export async function initINFOController(billingId) {
     $("infoExportCsvBtn")?.addEventListener("click", () => {
       const safeRows = normalizeINFORows(rows);
       const filename = `billing_${billing.id}_receipts.csv`;
-      exportToCSV(filename, safeRows, PROFILE_CSV_COLUMNS);
+      exportToCSV(filename, safeRows, INFO_CSV_COLUMNS);
     });
 
     $("infoExportPdfBtn")?.addEventListener("click", () => {
-      const html = buildReceiptPDFHtml(billing, rows);
+      const html = buildINFOPDFHtml(billing, rows);
       exportToPDF(`Billing ${billing.id} Receipt`, html);
     });
 
     setINFOLoading(false);
   } catch (err) {
     console.error("[infoController] error:", err);
-    renderReceiptError();
+    renderINFOError();
   }
 }
 
-export default { initReceiptController };
+export default { initINFOController };

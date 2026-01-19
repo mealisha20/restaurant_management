@@ -1,9 +1,9 @@
-// frontend/assets/js/components/ProfilesTable.js
+// frontend/assets/js/components/INFOsTable.js
 import { $ } from "../utils/dom.js";
 
-export function renderProfilesTable(billings) {
-  const body = $("profilesTableBody");
-  const noINFOs = $("noProfiles");
+export function renderINFOsTable(billings) {
+  const body = $("infosTableBody");
+  const noINFOs = $("noINFOs");
 
   if (!body) return;
 

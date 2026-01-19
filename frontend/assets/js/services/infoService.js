@@ -1,4 +1,4 @@
-// frontend/assets/js/services/profileService.js
+// frontend/assets/js/services/infoService.js
 // Only data fetching / shaping (no DOM here)
 
 export async function fetchBillingById(billingId) {

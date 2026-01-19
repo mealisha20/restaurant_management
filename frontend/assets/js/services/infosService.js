@@ -1,9 +1,9 @@
-// frontend/assets/js/services/profilesService.js
+// frontend/assets/js/services/infosService.js
 // Only responsible for fetching data (no DOM / UI here)
 
-const API_URL = window.ENV.API_BASE_URL; // /api/students
+const API_URL = window.ENV.API_BASE_URL; // /api/billings
 
-export async function fetchAllReceipts() {
+export async function fetchAllINFOs() {
   const res = await fetch(API_URL);
   return res.ok ? await res.json() : [];
 }
