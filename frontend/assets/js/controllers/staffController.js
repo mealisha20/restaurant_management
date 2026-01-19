@@ -85,6 +85,8 @@ export async function createNewStaff(data) {
     showAlert("Staff added!");
     resetStaffForm();
     loadStaffs();
+  }else {
+    showAlert("Failed to add staff", "error");
   }
 }
 
@@ -106,6 +108,8 @@ export async function updateStaff(id, data) {
     resetStaffForm();
     setState({ editingStaffId: null });
     loadStaffs();
+  }else {
+    showAlert("Failed to update staff", "error");
   }
 }
 
@@ -117,5 +121,7 @@ export async function deleteStaffAction(id) {
  	if (res.ok) {
     showAlert("Deleted!");
     loadStaffs();
-  }
+  }else {
+    showAlert("Failed to delete staff", "error");
+}
 }
