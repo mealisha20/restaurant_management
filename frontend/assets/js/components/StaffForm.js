@@ -1,5 +1,6 @@
 import { $ } from "../utils/dom.js";
- 
+import { setState } from "../state/store.js";
+
 export function resetStaffForm() {
    $("staffForm").reset();
    $("cancelBtn").classList.add("hidden");

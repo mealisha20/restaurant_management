@@ -13,8 +13,8 @@ export function renderStaffTable(staffs) {
      if (noStaffs) noStaffs.classList.remove("hidden");
     return;
   }
-  noStaffs.classList.add("hidden");
-
+ if (noStaffs) noStaffs.classList.add("hidden");
+ 
   staffs.forEach((s) => {
     const tr = document.createElement("tr");
      tr.className = "border-b";
