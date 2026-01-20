@@ -1,63 +1,115 @@
-<div class="max-w-5xl mx-auto p-6">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAWAT - Menu Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                        url('https://img.freepik.com/free-vector/hand-drawn-fast-food-background_23-2149013389.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(239, 68, 68, 0.1);
+        }
+        /* Removed the foodGulp animation to prevent CSS errors */
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
 
-  <div class="flex items-center justify-between mb-6">
-    <h1 class="text-3xl font-bold">Menus</h1>
-    <a href="/home" data-link class="text-sm text-blue-600 underline">← Back to Home</a>
-  </div>
-  <!-- Add / Edit menu Form -->
-   <div class="bg-white p-5 rounded shadow mb-8">
-    <h2 class="font-semibold mb-3 text-lg">Add New Menus </h2>
-    <form id="menuForm" class="space-y-3">
-      <input type="text" id="Category" placeholder="Category" required class="w-full border rounded px-3 py-2">
-      <input type="text" id="name" placeholder="Name" required class="w-full border rounded px-3 py-2">
-      <input type="number" id="price" placeholder="Price" required class="w-full border rounded px-3 py-2">
-      <input type="number" id="rating" placeholder="Rating" required class="w-full border rounded px-3 py-2">
-      
-      <div class="flex space-x-2">
-        <button type="submit" id="submitBtn"
-          class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">
-          Add Menu
-        </button>
+         <header class="flex items-center justify-between max-w-5xl mx-auto mb-6">
+    <a href="/" class="flex items-center gap-2 bg-white/70 hover:bg-white px-4 py-2 rounded-xl border-2 border-green-100 transition shadow-sm text-gray-700 font-bold">
+        <i class="fa-solid fa-house text-green-500"></i>
+        <span>Home</span>
+    </a>
+        <h1 class="text-4xl font-bold text-gray-800 flex-grow text-center mr-[80px]">Menu Page 🍕</h1>
+        <p class="text-gray-600">Add the magic ingredients to your list!</p>
+    </header>
 
-        <button type="button" id="cancelBtn"
-          class="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded hidden">
-          Cancel
-        </button>
-      </div>
-    </form>
-  </div>
+    <section class="max-w-xl mx-auto mt-[5vh] mb-12">
+        <div class="p-6">
+            <h2 class="font-bold mb-5 text-xl text-center text-red-500 uppercase">Create New Dish</h2>
+            <form id="menuForm" class="space-y-4">
+                <div class="relative">
+                    <i class="fa-solid fa-bowl-food absolute left-3 top-3 text-red-400"></i>
+                    <input type="text" id="name" placeholder="Dish Name (e.g., Spicy Paneer)" required 
+                        class="w-full border-2 border-red-100 rounded-xl px-10 py-2 focus:ring-2 focus:ring-red-400 outline-none bg-white/70">
+                </div>
+                
+                <div class="relative">
+                    <i class="fa-solid fa-layer-group absolute left-3 top-3 text-red-400"></i>
+                    <input type="text" id="Category" placeholder="Category (Starters, Main, Drinks)" required 
+                        class="w-full border-2 border-red-100 rounded-xl px-10 py-2 focus:ring-2 focus:ring-red-400 outline-none bg-white/70">
+                </div>
 
-  <!-- menus Table -->
-  <div class="bg-white p-5 rounded shadow">
-    <h2 class="font-semibold mb-4 text-lg">All Menus</h2>
+                <div class="relative">
+                    <i class="fa-solid fa-tag absolute left-3 top-3 text-red-400"></i>
+                    <input type="number" id="price" placeholder="Price (₹)" required 
+                        class="w-full border-2 border-red-100 rounded-xl px-10 py-2 focus:ring-2 focus:ring-red-400 outline-none bg-white/70">
+                </div>
+                <div class="relative">
+                    <i class="fa-solid fa-tag absolute left-3 top-3 text-red-400"></i>
+                    <input type="number" id="rating" placeholder="Rating⭐" required 
+                        class="w-full border-2 border-red-100 rounded-xl px-10 py-2 focus:ring-2 focus:ring-red-400 outline-none bg-white/70">
+                </div>
 
-    <!-- Loading Spinner -->
-    <div id="loadingSpinner" class="text-center py-4">
-      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
-    </div>
+                <div class="flex space-x-3">
+                    <button type="submit" id="submitBtn"
+                        class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl shadow-lg transition transform hover:scale-105 active:scale-95">
+                        Add to Menu
+                    </button>
+                    <button type="button" id="cancelBtn"
+                        class="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-3 rounded-xl hidden">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
 
-    <!-- menus Table Container -->
-    <div id="menusTableContainer" class="hidden overflow-x-auto">
-      <table class="min-w-full text-left border">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="px-3 py-2">Id</th>
-            <th class="px-3 py-2">Category</th>
-            <th class="px-3 py-2">Name</th>
-            <th class="px-3 py-2">Price</th>
-            <th class="px-3 py-2">Rating</th>
-            <th class="px-3 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="menusTableBody"></tbody>
-      </table>
 
-      <p id="noMenus" class="text-center text-gray-500 mt-3 hidden">
-        No menus found. Add one using the form above.
-      </p>
-    </div>
-  </div>
+    <section class="max-w-5xl mx-auto mb-20">
+        <div class="p-6">
+            <h2 class="font-bold text-2xl text-gray-800 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-scroll text-red-500"></i> Current Menu Items
+            </h2>
 
-  <!-- Alert container -->
-  <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
-</div>
+            <div id="loadingSpinner" class="text-center py-8">
+                <div class="animate-spin rounded-full h-10 w-10 border-b-4 border-red-500 mx-auto"></div>
+                <p class="text-gray-500 mt-2">Cooking up your list...</p>
+            </div>
+
+            <div id="menusTableContainer" class="hidden overflow-hidden rounded-3xl glass-card shadow-xl">
+                <table class="min-w-full text-left">
+                    <thead class="bg-red-500 text-white">
+                        <tr>
+                            <th class="px-6 py-4">Dish ID</th>
+                            <th class="px-6 py-4">Category</th>
+                            <th class="px-6 py-4">Dish Name</th>
+                            <th class="px-6 py-4">Price (₹)</th>
+                            <th class="px-3 py-2">Rating</th>
+                            <th class="px-6 py-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="menusTableBody" class="divide-y divide-red-100">
+                    </tbody>
+                </table>
+                <p id="noMenus" class="text-center text-gray-500 p-10 hidden">The kitchen is empty! Add a dish above.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+    <a href="/" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110 active:scale-95 z-50">
+    <i class="fa-solid fa-house text-xl"></i>
+</a>
+
+</body>
+</html>

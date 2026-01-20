@@ -52,6 +52,12 @@ export async function router() {
     mod.initReceiptReportController();
      return;
   }
+
+  if (path === "/events") {
+    await loadView("/frontend/pages/events.html")
+    return;
+  }
+
   if (path === "/infos") {
     await loadView("/frontend/pages/infos.html");
     const mod = await import("../controllers/infosController.js");
